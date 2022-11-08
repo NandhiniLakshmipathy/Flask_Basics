@@ -1,0 +1,74 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+/*Body*/
+body,html{
+    background-color: #fff;
+    /* overflow-x: hidden; */
+    margin: 0px;
+    padding: 0px;
+}
+/* Landing page */
+
+.landing{
+    
+    display: inline;
+    /* flex-direction: row;
+    justify-content: space-between;
+    align-items: center; */
+    margin-top: 50px;
+    padding: 0 9vw 0 10vw;
+    height: 10vh;
+}
+.landing-text{
+    width: 70%;
+}
+.landing-text h1{
+    font-size: 4vw;
+    margin: 0;
+}
+
+.landing-text h3{
+    margin: 6px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #777777;
+    padding-right: 20px;
+}
+
+.landing-text .btn{
+    width: 140px;
+    margin-top: 30px;
+    padding: 14px 20px 12px 20px;
+    background-color: #007bff;
+    border-radius: 45px;
+    text-align: center;
+
+}
+
+.landing-text .btn a{
+    font-size: 1.2vw;
+    color: #fff;
+}
+
+.landing-image{
+    width: 320px;
+
+}
+
+.landing-image img{
+        float: right;    
+         margin: 0 0 0 15px;
+        
+}
+
+
+@media only screen and (max-width: 500px) {
+    /* For mobile phones: */
+    .landing, .landing-text, .landing-image {
+      width: 100%;
+      height: auto;
+    }
+  }
