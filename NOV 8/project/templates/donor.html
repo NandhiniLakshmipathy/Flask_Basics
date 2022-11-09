@@ -16,34 +16,33 @@
   <table class="table table-hover table-bordered" style="margin:100px 0px; text-align: center;">
     <thead class="thead-light">
       <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Blood Group</th>
         <th scope="col">Area</th>
         <th scope="col">City</th>
         <th scope="col">District</th>
-        <th scope="col">Blood Group</th>
-        <th scope="col">Made a Request</th>
+        <th scope="col">Make a Request</th>
       </tr>
     </thead>
     <tbody>
+      {% for res in user %}
+            {% set i=loop.index %}
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{ i }}</td>
+        <td>{{ res["email"] }}</td>
+        <td>{{ res["age"] }}</td>
+        <td>{{ res["blood"] }}</td>
+        <td>{{ res["area"] }}</td>
+        <td>{{ res["city"] }}</td>
+        <td>{{ res["district"] }}</td>
         <td>
-            <button type="button" class="btn-sm btn-info" data-toggle="modal"><a href="{{url_for('request_page')}}" style="color: white; text-decoration:none">Request</a></button> </td>
+         <a href="{{url_for('request_page')}}" class="btn-sm btn-info" style="color: white; text-decoration:none">Request</a>
+        </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      {% endfor %}
+      
     </tbody>
   </table>
 </div>
