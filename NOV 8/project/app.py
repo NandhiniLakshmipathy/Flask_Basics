@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key="1"
 
-con = sqlite3.connect("final2.db")
+con = sqlite3.connect("new2.db")
 con.execute("""CREATE TABLE IF NOT EXISTS 
 user(pid INTEGER primary key, name TEXT, 
 mobile INTEGER, email TEXT, age INTEGER, 
@@ -28,12 +28,16 @@ def success():
 
 #---------------------------------------------------------
 
-@app.route("/login",methods=["GET","POST"])
+@app.route("/login")
 def login():
+    return render_template('login.html')
+
+@app.route("/new",methods=["GET","POST"])
+def new():
     if request.method=='POST':
         email=request.form['email']
         password=request.form['password']
-        con=sqlite3.connect("final2.db")
+        con=sqlite3.connect("new2.db")
         con.row_factory=sqlite3.Row
         cur=con.cursor()
         cur.execute("select * from user where email=? and crpassword=?",(email,password))
@@ -42,22 +46,24 @@ def login():
         if data:
             session["email"]=data["email"]
             session["crpassword"]=data["crpassword"]
-            return redirect(url_for('after_login'))
+            return redirect(url_for('afterlogin'))
         else:
             flash("Username and Password Mismatch","danger")
-    
-    return render_template('login.html')
 
 #---------------------------------------------------------
 # After login
-@app.route('/afterlogin',methods=["GET","POST"])
-def after_login():
+@app.route('/afterlogin')
+def afterlogin():
     return render_template("user_profile.html")
 
 #-------------------------------------------------------
 
 @app.route("/register",methods = ['POST', 'GET'])
 def register():
+    return render_template('register.html')
+
+@app.route("/adddata",methods = ['POST','GET'])
+def adddata():
     if request.method == 'POST':
         try:
             name = request.form['name']
@@ -70,7 +76,7 @@ def register():
             area = request.form['area']
             city = request.form['city']
             district = request.form['district']
-            con = sqlite3.connect("final2.db")
+            con = sqlite3.connect("new2.db")
             cur = con.cursor()
             cur.execute("""INSERT 
             INTO user(name, mobile, 
@@ -88,15 +94,20 @@ def register():
     
         finally:
             return redirect(url_for("success"))
-    return render_template('register.html')
 
-@app.route("/request")
+@app.route("/request_page")
 def request_page():
     return render_template('request.html')
 
 @app.route("/donor")
-def request_donor():
-    return render_template('donor.html')
+def donor():
+    con = sqlite3.connect("new2.db")
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    cur.execute("SELECT email,age,blood, area,city, district FROM user")
+    user = cur.fetchall()
+    con.close()
+    return render_template('donor.html', user=user)
 
 @app.route("/admin")
 def admin():
