@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+<!--title tag-->
+{% block title %}
+<title>Plasma-LogIn</title>
+{% endblock %}
+
+<!---Donor Content-->
+{% block content %}
+<!---Donor table-->  
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 ">
+            <div class="">
+                <div class="">
+  <table class="table table-hover table-bordered" style="margin:100px 0px; text-align: center;">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Area</th>
+        <th scope="col">City</th>
+        <th scope="col">District</th>
+        <th scope="col">Blood Group</th>
+        <th scope="col">Made a Request</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>
+            <button type="button" class="btn-sm btn-info" data-toggle="modal"><a href="{{url_for('request_page')}}" style="color: white; text-decoration:none">Request</a></button> </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
