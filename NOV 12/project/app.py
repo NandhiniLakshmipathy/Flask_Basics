@@ -93,7 +93,7 @@ def signin():
 #-------------------------------------------------------------------
 # sendgrid integration
 def mailtest_registration(to_email):
-    sg = sendgrid.SendGridAPIClient(api_key= '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' )
+    sg = sendgrid.SendGridAPIClient(api_key= 'api key' )
     from_email = Email("nandhini02lak@gmail.com")
     subject = "Registration Successfull!"
     content = Content("text/plain", "You have successfully registered as user. Please Login using your Username and Password to donate/request for Plasma.")
@@ -105,7 +105,7 @@ def mailtest_registration(to_email):
 
 #for donor
 def mailtest_donor(to_email):
-    sg = sendgrid.SendGridAPIClient(api_key= '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' )
+    sg = sendgrid.SendGridAPIClient(api_key= 'api key' )
     from_email = Email("nandhini02lak@gmail.com")
     subject = "Thankyou for Registering as Donor!"
     content = Content("text/plain", "Every donor is an asset to the nation who saves people's lives, and you're one of them.We appreciate your efforts. Thank you!!")
@@ -118,7 +118,7 @@ def mailtest_donor(to_email):
 #for request
 
 def mailtest_request(to_email):
-    sg = sendgrid.SendGridAPIClient(api_key= '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' )
+    sg = sendgrid.SendGridAPIClient(api_key= 'api key' )
     from_email = Email("nandhini02lak@gmail.com")
     subject = "Request Submitted!"
     content = Content("text/plain", "Your request has been successfully submitted. Please be patient, your requested donor will get back to you soon.")
