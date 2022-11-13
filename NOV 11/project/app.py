@@ -98,7 +98,7 @@ def signin():
 
 #sendgrid integration
 def mailtest(to_email):
-    sg = sendgrid.SendGridAPIClient(api_key= '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' )
+    sg = sendgrid.SendGridAPIClient(api_key= '' )
     from_email = Email("chinnukool72@gmail.com")
     subject = "Registration Successfull!"
     content = Content("text/plain", "")
