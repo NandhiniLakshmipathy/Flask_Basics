@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+<!--title tag-->
+{% block title %}
+<title>Plasma-LogIn</title>
+{% endblock %}
+
+<!---Donor Content-->
+{% block content %}
+<!---Donor table-->  
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 ">
+            <div class="">
+                <div class="">
+  <table class="table table-hover table-bordered" style="margin:100px 0px; text-align: center;">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Blood Group</th>
+        <th scope="col">Area</th>
+        <th scope="col">City</th>
+        <th scope="col">District</th>
+        <th scope="col">Make a Request</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for res in user %}
+            {% set i=loop.index %}
+      <tr>
+        <td>{{ i }}</td>
+        <td>{{ res["email"] }}</td>
+        <td>{{ res["age"] }}</td>
+        <td>{{ res["blood"] }}</td>
+        <td>{{ res["area"] }}</td>
+        <td>{{ res["city"] }}</td>
+        <td>{{ res["district"] }}</td>
+        <td>
+         <a href="{{url_for('request_page')}}" class="btn-sm btn-info" style="color: white; text-decoration:none">Request</a>
+        </td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

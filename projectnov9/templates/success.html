@@ -1,0 +1,75 @@
+{% extends 'base.html'%}
+
+<!--title tag-->
+{% block title %}
+<title>Plasma-About</title>
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='success.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+<!---User Content-->
+{% block content %}
+            
+        
+
+        <div class="container-fluid">  
+     
+            <div class="text-center">  
+                
+            <style>
+            
+                 
+            .hide {
+              display: none;
+            }
+            .myDIV:hover + .hide {
+              display: block;
+              color: red;
+            text-align: top;
+            }        
+                    
+                    
+            </style>
+                
+                
+                
+            <div class="container">   
+            <div class="row p-1">
+               <div class="col-sm-12">
+                <div class="card" style="margin-top: 70px;">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+
+    {% for category, message in messages %}
+      <div class="alret alret-{{category}} flashes">{{ message }}</div>
+    {% endfor %}
+    
+  {% endif %}
+        {% endwith %}
+                  <div class="card-body">
+                
+            
+            <div class="myDIV">
+                    
+            <img src="{{ url_for('static',filename='success.png')}}" class="img-fluid" width="40%">  
+                    
+             </div> <div class="hide">You are a real superhero!</div>
+            
+                     <h2>Thank you for donating plasma.</h2> 
+                      
+                      
+                         </div>
+                            </div>
+                               </div>  
+                                   </div>
+                                        </div></div> </div> 
+       
+
+{% endblock%}
+
+
+
+
